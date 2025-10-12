@@ -74,9 +74,6 @@ const Login = () => {
     }
 
     try {
-      console.log('🔵 API URL:', import.meta.env.VITE_API_URL);
-      console.log('🔵 Datos de registro que se envían:', registerData);
-      
       const response = await fetch(`${import.meta.env.VITE_API_URL}/register`, {
         method: 'POST',
         headers: {
@@ -85,9 +82,7 @@ const Login = () => {
         body: JSON.stringify(registerData),
       });
 
-      console.log('🔵 Response status:', response.status);
       const data = await response.json();
-      console.log('🔵 Response data:', data);
 
       if (response.ok) {
         setSuccessMessage('¡Registro exitoso! Ahora puedes iniciar sesión.');
@@ -105,7 +100,6 @@ const Login = () => {
         setErrors({ general: data.message || 'Error al registrarse' });
       }
     } catch (error) {
-      console.error('❌ Error en registro:', error);
       setErrors({ general: 'Error de conexión con el servidor' });
     } finally {
       setLoading(false);
@@ -134,10 +128,7 @@ const Login = () => {
     }
 
     try {
-      console.log('🟢 API URL:', import.meta.env.VITE_API_URL);
-      console.log('🟢 Datos de login que se envían:', loginData);
-      
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/login`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/register`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -145,9 +136,7 @@ const Login = () => {
         body: JSON.stringify(loginData),
       });
 
-      console.log('🟢 Response status:', response.status);
       const data = await response.json();
-      console.log('🟢 Response data:', data);
 
       if (response.ok) {
         setUser(data.user);
@@ -156,7 +145,6 @@ const Login = () => {
         setErrors({ general: data.message || 'Credenciales incorrectas' });
       }
     } catch (error) {
-      console.error('❌ Error en login:', error);
       setErrors({ general: 'Error de conexión con el servidor' });
     } finally {
       setLoading(false);
