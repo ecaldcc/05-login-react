@@ -47,6 +47,11 @@ Respuestas:
 
 409: Email o DPI ya registrado
 
+
+## Despliegue 
+frontend desplegado en Netlify: login-frontend-react.netlify.app
+Backend desplegado en render: https://zero5-login-react-backend.onrender.com
+
 ## Desarrolladores
 Edwar Daniel Calderon Cinco 9490-20-26601
 Henry David Cabrera Virual 9490-20-6611
